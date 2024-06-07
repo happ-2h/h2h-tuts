@@ -3,14 +3,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import bookCovers from "@assets/data/bookCovers";
 import Book from "@components/Book";
 import { StatusBar } from "expo-status-bar";
+import { BookCover } from "@/types";
 
 const Home = () => {
   return (
     <SafeAreaView>
       <FlatList
         data={bookCovers}
-        renderItem={({ item }) => <Book book={item} />}
+        renderItem={({ item }: { item: BookCover}) => <Book book={item} />}
         contentContainerStyle={{ gap: 10, padding: 5 }}
+        style={{ backgroundColor: "#FAFAFA", height: "100%" }}
       />
 
       <StatusBar hidden={true} style="auto" />
