@@ -1,8 +1,15 @@
-import { Text } from "react-native";
+import { BookCover } from "@/types";
+import { Image, Pressable, Text, View } from "react-native";
 
-const Book = () => {
+const Book = ({ book }: { book: BookCover }) => {
   return (
-    <Text>Book</Text>
+    <Pressable>
+      <Image />
+      <View>
+        <Text>{book.title}</Text>
+        <Text>{book.desc}</Text>
+      </View>
+    </Pressable>
   );
 };
 

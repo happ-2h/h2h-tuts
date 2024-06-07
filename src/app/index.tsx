@@ -9,7 +9,7 @@ const Home = () => {
     <SafeAreaView>
       <FlatList
         data={bookCovers}
-        renderItem={({ item }) => <Book />}
+        renderItem={({ item }) => <Book book={item} />}
         contentContainerStyle={{ gap: 10, padding: 5 }}
       />
 
