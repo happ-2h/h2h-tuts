@@ -5,7 +5,12 @@ const ChapterItem = ({ details, book }) => {
   // let [fontsLoaded, fontError]
 
   return (
-    <Link href='/' asChild>
+    <Link href={{
+      pathname: `/books/${details.id}`,
+      params: {
+        book
+      }
+    }} asChild>
       <Pressable style={styles.container}>
         <Text style={styles.title}>{details.title}</Text>
         <Text style={styles.desc}>{details.desc}</Text>

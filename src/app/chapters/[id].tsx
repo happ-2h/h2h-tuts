@@ -19,8 +19,9 @@ const TOC = () => {
       />
 
       <Stack.Screen options={{
+        // TODO: icon color
         headerRight: () => <MaterialCommunityIcons name={params.icon} size={32} />,
-        headerTitleAlign: "center"
+        headerTitleAlign: "center",
       }} />
     </>
   );
