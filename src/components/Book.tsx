@@ -1,6 +1,7 @@
 import { BookCover } from "@/types";
 import { defaultImage } from "@assets/data/bookCovers";
 import { Montserrat_400Regular, Montserrat_600SemiBold, useFonts } from "@expo-google-fonts/montserrat";
+import { Link } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 const Book = ({ book }: { book: BookCover }) => {
@@ -15,16 +16,23 @@ const Book = ({ book }: { book: BookCover }) => {
   }
 
   return (
-    <Pressable style={styles.container}>
-      <Image 
-        style={styles.image}
-        source={ book.img || defaultImage }
-      />
-      <View style={{ flexShrink: 1 }}>
-        <Text style={styles.title}>{book.title}</Text>
-        <Text style={styles.desc} numberOfLines={5}>{book.desc}</Text>
-      </View>
-    </Pressable>
+    <Link href={{
+      pathname: `/chapters/${book.id}`,
+      params: {
+        icon: book.icon
+      }
+    }} asChild>
+      <Pressable style={styles.container}>
+        <Image 
+          style={styles.image}
+          source={ book.img || defaultImage }
+        />
+        <View style={{ flexShrink: 1 }}>
+          <Text style={styles.title}>{book.title}</Text>
+          <Text style={styles.desc} numberOfLines={5}>{book.desc}</Text>
+        </View>
+      </Pressable>
+    </Link>
   );
 };
 
@@ -48,6 +56,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: 'Montserrat_600SemiBold',
+    textAlign: "center",
     marginBottom: 5,
     color: "#399EE6",
     borderBottomColor: "#5C61660F",
