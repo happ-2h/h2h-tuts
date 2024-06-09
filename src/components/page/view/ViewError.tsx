@@ -23,7 +23,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: "#E65050",
     borderWidth: 2,
-    marginBottom: 20
+    marginBottom: 20,
+    elevation: 1,
+    shadowColor: "#FF7383"
+
   },
   heading: {
     flexDirection: "row",
@@ -34,6 +37,7 @@ const styles = StyleSheet.create({
   headingText: {
     fontSize: 24,
     textTransform: "uppercase",
+    color: "#F8F9FA"
   },
   content: {
     color: "#F8F9FA"

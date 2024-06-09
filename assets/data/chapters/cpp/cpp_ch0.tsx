@@ -28,6 +28,17 @@ const cpp_ch0 = {
           type: "error",
           kind: "error",
           content: "Lorem ipsum dolor sit amett."
+        },
+        {
+          type: "code",
+          // FIXME: can't escape pound character '#' [Render ERROR]
+          content: `
+\\#include <iostream>
+
+int main(int argc, const char* argv[]) {
+  return 0;
+}
+          `
         }
       ]
     },
@@ -56,6 +67,30 @@ const cpp_ch0 = {
           type: "error",
           kind: "error",
           content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi perferendis, excepturi cupiditate nulla repudiandae mollitia veritatis praesentium. Est maxime distinctio praesentium iusto aliquid? Distinctio pariatur culpa repudiandae fuga, quam obcaecati officiis numquam. Eveniet quasi quo ea nulla veniam ratione, delectus eum aliquid!"
+        },
+        {
+          type: "code",
+          content: `
+/*
+  Multiline comment
+ */
+template<class... Args>
+void f(Args... args) {
+  auto x = [args...] { return g(args...); };
+  x();
+}
+
+int main(int argc, const char* argv[]) { 
+  int a = 10;
+  double b{ 12.3f };
+  bool c{ true && false || !true };
+
+  std::cout << "string" << '\\n';
+
+  // EXIT_SUCCESS
+  return 0; 
+}
+          `
         }
       ]
     }

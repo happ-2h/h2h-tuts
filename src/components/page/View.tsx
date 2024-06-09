@@ -4,6 +4,7 @@ import ViewTitle from "./view/ViewTitle";
 import ViewError from "./view/ViewError";
 import ViewGood from "./view/ViewGood";
 import SubHeading from "./view/ViewSubheading";
+import ViewCode from './view/ViewCode';
 
 const PageView = ({ title, content }) => {
   return ( 
@@ -20,6 +21,8 @@ const PageView = ({ title, content }) => {
               return <ViewGood key={item.content} content={item.content} kind={item.kind} />;
             case "subheading":
               return <SubHeading key={item.content} content={item.content} />;
+            case "code":
+              return <ViewCode key={item.content} content={item.content} />
           }
         })
       }

@@ -1,3 +1,4 @@
+// TODO: icon color
 const bookCovers = [
   {
     id: "cpp",

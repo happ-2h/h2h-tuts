@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: "#6CBF43",
     borderWidth: 2,
-    marginBottom: 20
+    marginBottom: 20,
+    elevation: 1,
+    shadowColor: "#4CBF99",
   },
   heading: {
     flexDirection: "row",
