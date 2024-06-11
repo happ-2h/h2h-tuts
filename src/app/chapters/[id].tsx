@@ -13,15 +13,16 @@ const TOC = () => {
   return (
     <>
       <FlatList
-        data={toc}
-        renderItem={({ item }) => <ChapterItem details={item} book={params.id} />}
+        data={ toc }
+        renderItem={({ item }) => <ChapterItem details={ item } book={ params.id } />}
         contentContainerStyle={{ gap: 10, padding: 5 }}
         style={{ backgroundColor: "#FAFAFA", height: "100%" }}
       />
 
       <Stack.Screen options={{
-        // TODO: icon color
-        headerRight: () => <MaterialCommunityIcons name={params.icon} size={32} />,
+        headerRight: () => <MaterialCommunityIcons
+          name={ params.icon }
+          color={ params.iconColor } size={32} />,
         headerTitleAlign: "center",
       }} />
     </>

@@ -3,13 +3,23 @@ import { FontAwesome }            from '@expo/vector-icons';
 
 const ViewGood = ({ content, kind }: { content: string, kind: string }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.heading}>
-        <FontAwesome name="check-circle" size={32} color="#F8F9FA" style={{ marginRight: 10 }} />
-        <Text style={styles.headingText}>{kind}</Text>
-        <FontAwesome name="check-circle" size={32} color="#F8F9FA" style={{ marginRight: 10 }} />
+    <View style={ styles.container }>
+      <View style={ styles.heading }>
+        <FontAwesome
+          name="check-circle"
+          size={ 32 }
+          color="#F8F9FA"
+          style={{ marginRight: 10 }}
+        />
+        <Text style={ styles.headingText }>{ kind }</Text>
+        <FontAwesome
+          name="check-circle"
+          size={ 32 }
+          color="#F8F9FA"
+          style={{ marginRight: 10 }}
+        />
       </View>
-      <Text style={styles.content}>{content}</Text>
+      <Text style={ styles.content }>{ content }</Text>
     </View>
   );
 };

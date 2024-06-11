@@ -1,5 +1,6 @@
-// TODO UUID
-const cpp_ch0 = {
+import { ChapterObject } from "@/types";
+
+const cpp_ch0: ChapterObject = {
   id: "cpp_ch0",
   content: [
     {type: "header", content: "Book Conventions"},
@@ -80,7 +81,7 @@ void f(Args... args) {
   x();
 }
 
-int main(int argc, const char* argv[]) { 
+int main(int argc, const char* argv[]) {
   int a = 10;
   double b{ 12.3f };
   bool c{ true && false || !true };
@@ -88,7 +89,7 @@ int main(int argc, const char* argv[]) {
   std::cout << "string" << '\\n';
 
   // EXIT_SUCCESS
-  return 0; 
+  return 0;
 }
           `
         }

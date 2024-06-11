@@ -9,8 +9,9 @@ import {
   useFonts
 } from "@expo-google-fonts/montserrat";
 
-import { BookCover }    from "@/types";
 import { defaultImage } from "@assets/data/bookCovers";
+
+import { BookCover }    from "@/types";
 
 const Book = ({ book }: { book: BookCover }) => {
   let [fontsLoaded, fontError] = useFonts({
@@ -27,19 +28,20 @@ const Book = ({ book }: { book: BookCover }) => {
 
   return (
     <Link href={{
-      pathname: `/chapters/${book.id}`,
+      pathname: `/chapters/${ book.id }`,
       params: {
-        icon: book.icon
+        icon:      book.icon[0],
+        iconColor: book.icon[1]
       }
     }} asChild>
-      <Pressable style={styles.container}>
+      <Pressable style={ styles.container }>
         <Image
-          style={styles.image}
+          style={ styles.image }
           source={ book.img || defaultImage }
         />
         <View style={{ flexShrink: 1 }}>
-          <Text style={styles.title}>{book.title}</Text>
-          <Text style={styles.desc} numberOfLines={5}>{book.desc}</Text>
+          <Text style={ styles.title }>{ book.title }</Text>
+          <Text style={ styles.desc } numberOfLines={ 5 }>{ book.desc }</Text>
         </View>
       </Pressable>
     </Link>

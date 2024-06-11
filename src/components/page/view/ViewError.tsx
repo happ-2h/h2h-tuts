@@ -3,13 +3,23 @@ import { FontAwesome }            from '@expo/vector-icons';
 
 const ViewError = ({ content, kind }: { content: string, kind: string }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.heading}>
-        <FontAwesome name={`exclamation-${kind == "error" ? "circle" : "triangle"}`} size={32} color="#E65050" style={{ marginRight: 10 }} />
-        <Text style={styles.headingText}>{kind}</Text>
-        <FontAwesome name={`exclamation-${kind == "error" ? "circle" : "triangle"}`} size={32} color="#E65050" style={{ marginRight: 10 }} />
+    <View style={ styles.container }>
+      <View style={ styles.heading }>
+        <FontAwesome
+          name={ `exclamation-${ kind == "error" ? "circle" : "triangle" }` }
+          size={ 32 }
+          color="#E65050"
+          style={{ marginRight: 10 }}
+        />
+        <Text style={ styles.headingText }>{ kind }</Text>
+        <FontAwesome
+          name={ `exclamation-${ kind == "error" ? "circle" : "triangle" }` }
+          size={ 32 }
+          color="#E65050"
+          style={{ marginRight: 10 }}
+        />
       </View>
-      <Text style={styles.content}>{content}</Text>
+      <Text style={ styles.content }>{ content }</Text>
     </View>
   );
 };

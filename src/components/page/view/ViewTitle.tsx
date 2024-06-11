@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 
 const ViewTitle = ({ title }: { title: string }) => {
-  return <Text style={styles.text}>{title}</Text>
+  return <Text style={ styles.text }>{ title }</Text>
 };
 
 export default ViewTitle;

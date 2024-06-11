@@ -7,23 +7,32 @@ import ViewGood   from "./view/ViewGood";
 import SubHeading from "./view/ViewSubheading";
 import ViewCode   from './view/ViewCode';
 
-const PageView = ({ title, content }) => {
+import { ChapterContentContent } from "@/types";
+
+type PageViewParamTypes = {
+  title:   string;
+  content: ChapterContentContent[];
+};
+
+const PageView = ({ title, content }: PageViewParamTypes) => {
   return (
     <View style={ styles.container }>
-      <ViewTitle title={title} />
+      <ViewTitle title={ title } />
       {
         content.map(item => {
           switch(item.type) {
             case "text":
-              return <ViewText key={item.content} content={item.content} />;
+              return <ViewText   key={ item.content } content={ item.content } />;
             case "error":
-              return <ViewError key={item.content} content={item.content} kind={item.kind} />;
+              return <ViewError  key={ item.content } content={ item.content }
+                kind={ item.kind as string } />;
             case "good":
-              return <ViewGood key={item.content} content={item.content} kind={item.kind} />;
+              return <ViewGood   key={ item.content } content={ item.content }
+                kind={ item.kind as string } />;
             case "subheading":
-              return <SubHeading key={item.content} content={item.content} />;
+              return <SubHeading key={ item.content } content={ item.content } />;
             case "code":
-              return <ViewCode key={item.content} content={item.content} />
+              return <ViewCode   key={ item.content } content={ item.content } />;
           }
         })
       }

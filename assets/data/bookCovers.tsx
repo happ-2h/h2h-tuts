@@ -1,11 +1,12 @@
-// TODO: icon color
-const bookCovers = [
+import { BookCover } from "@/types";
+
+const bookCovers: BookCover[] = [
   {
     id: "cpp",
     title: "C++ Tutorial",
     desc: "C++20 tutorial for beginners",
     img: null,
-    icon: "language-cpp",
+    icon: ["language-cpp", "#399EE6"],
     status: []
   }
 ];

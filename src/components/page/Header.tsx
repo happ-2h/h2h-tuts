@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 
 const PageHeader = ({ content } : { content: string }) => {
-  return <Text style={styles.text}>{ content }</Text>
+  return <Text style={ styles.text }>{ content }</Text>
 };
 
 export default PageHeader;

@@ -4,16 +4,18 @@ import Prism                      from 'prismjs';
 
 const codePiece = obj => {
   if (typeof obj === "string")
-    return <Text key={Crypto.randomUUID()} style={[styles.punctuation, styles.font]}>{ obj }</Text>;
+    return <Text key={ Crypto.randomUUID() }
+      style={ [styles.punctuation, styles.font] }>{ obj }</Text>;
 
-  return <Text key={Crypto.randomUUID()}  style={[styles[obj.type], styles.font ]}>{ obj.content }</Text>
+  return <Text key={ Crypto.randomUUID() }
+    style={ [styles[obj.type], styles.font] }>{ obj.content }</Text>
 };
 
 const ViewCode = ({ content }: { content: string }) => {
   const tokenized = Prism.tokenize(content, Prism.languages.cpp);
 
   return (
-    <View style={styles.container}>
+    <View style={ styles.container }>
       <Text>
         {
           tokenized.map((obj: Prism) => codePiece(obj))

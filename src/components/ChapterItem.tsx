@@ -1,19 +1,24 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import { Link }                        from "expo-router";
 
-const ChapterItem = ({ details, book }) => {
-  // let [fontsLoaded, fontError]
+import { BookTableOfContents }         from "@/types";
 
+type ChapterItemParamTypes = {
+  details: BookTableOfContents;
+  book: string | string[]
+};
+
+const ChapterItem = ({ details, book }: ChapterItemParamTypes) => {
   return (
     <Link href={{
-      pathname: `/books/${details.id}`,
+      pathname: `/books/${ details.id }`,
       params: {
         book
       }
     }} asChild>
-      <Pressable style={styles.container}>
-        <Text style={styles.title}>{details.title}</Text>
-        <Text style={styles.desc}>{details.desc}</Text>
+      <Pressable style={ styles.container }>
+        <Text style={ styles.title }>{ details.title }</Text>
+        <Text style={ styles.desc  }>{ details.desc  }</Text>
       </Pressable>
     </Link>
   );

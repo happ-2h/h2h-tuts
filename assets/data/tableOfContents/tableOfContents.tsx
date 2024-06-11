@@ -1,6 +1,7 @@
 import toc_cpp from "./cpp";
+import { TableOfContentsMap } from "@/types";
 
-const tableOfContents = {
+const tableOfContents: TableOfContentsMap = {
   "cpp": toc_cpp
 };
 

@@ -10,13 +10,13 @@ const Home = () => {
   return (
     <SafeAreaView>
       <FlatList
-        data={bookCovers}
-        renderItem={({ item }: { item: BookCover}) => <Book book={item} />}
+        data={ bookCovers }
+        renderItem={ ({ item }: { item: BookCover }) => <Book book={ item } /> }
         contentContainerStyle={{ gap: 10, padding: 5 }}
         style={{ backgroundColor: "#FAFAFA", height: "100%" }}
       />
 
-      <StatusBar hidden={true} style="auto" />
+      <StatusBar hidden={ true } style="auto" />
     </SafeAreaView>
   );
 };

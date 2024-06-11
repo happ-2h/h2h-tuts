@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 
 const SubHeading = ({ content }: { content: string }) => {
-  return <Text style={styles.text}>{ content }</Text>;
+  return <Text style={ styles.text }>{ content }</Text>;
 };
 
 export default SubHeading;

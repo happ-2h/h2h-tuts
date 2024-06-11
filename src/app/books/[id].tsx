@@ -6,27 +6,32 @@ import chapters   from "@assets/data/chapters/chapters";
 import PageHeader from "@components/page/Header";
 import PageView   from "@components/page/View";
 
+import { ChapterContentContent, ChapterObject } from "@/types";
+
 const BookContent = () => {
   const params = useLocalSearchParams();
 
-  const chapterData = chapters[params.book][params.id];
+  const chapterData: ChapterObject = chapters[params.book][params.id];
 
   return (
     <>
       <FlatList
-        data={chapterData.content}
+        data={ chapterData.content }
         renderItem={({ item }) => {
           switch(item.type) {
             case "header":
-              return <PageHeader content={item.content} />
+              return <PageHeader content={ item.content as string } />
             case "view":
-              return <PageView title={item.title} content={item.content} />
+              return <PageView
+                title={ item.title as string }
+                content={ item.content as ChapterContentContent[] }
+              />
           }
         }}
       />
 
       <Stack.Screen options={{
-        title: chapterData.content[0].content,
+        title: chapterData.content[0].content as string,
         headerTitleAlign: "center",
         headerTitleStyle: {
           fontFamily: "Montserrat_500Medium"
