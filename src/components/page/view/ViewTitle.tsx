@@ -8,14 +8,18 @@ export default ViewTitle;
 
 const styles = StyleSheet.create({
   text: {
-    color: "#5C6166",
-    textAlign: "center",
-    fontSize: 24,
-    fontWeight: '300',
     marginBottom: 10,
-    padding: 10,
-    borderBottomColor: "#5C61660F",
+    padding:      10,
+
+    textAlign:  "center",
+    fontFamily: "Montserrat_500Medium",
+    fontSize:   24,
+    letterSpacing: 1,
+
+    borderBottomWidth: 2,
     borderStyle: "solid",
-    borderBottomWidth: 2
+
+    borderBottomColor: "#5C61660F",
+    color: "#1F2430"
   }
 });

@@ -8,10 +8,13 @@ export default PageHeader;
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 32,
-    fontWeight: '600',
-    textAlign: "center",
     padding: 20,
+
+    textAlign:  "center",
+    fontFamily: "Montserrat_600SemiBold",
+    fontSize:   32,
+    letterSpacing: 1,
+
     color: "#5C6166"
   }
 });

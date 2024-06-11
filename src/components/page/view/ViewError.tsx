@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome }            from '@expo/vector-icons';
 
 const ViewError = ({ content, kind }: { content: string, kind: string }) => {
   return (
@@ -18,28 +18,35 @@ export default ViewError;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ff7383",
-    borderRadius: 10,
-    padding: 10,
-    borderColor: "#E65050",
-    borderWidth: 2,
     marginBottom: 20,
-    elevation: 1,
-    shadowColor: "#FF7383"
+    padding:      10,
+
+    borderRadius: 10,
+    borderWidth:   2,
+    elevation:     1,
+
+    borderColor:     "#E65050",
+    shadowColor:     "#FF7383",
+    backgroundColor: "#FF7383",
 
   },
   heading: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection:  "row",
+    alignItems:     "center",
     justifyContent: "space-between",
     marginBottom: 20
   },
   headingText: {
-    fontSize: 24,
+    fontFamily: "Montserrat_500Medium",
+    fontSize:     24,
+    letterSpacing: 1,
     textTransform: "uppercase",
     color: "#F8F9FA"
   },
   content: {
+    fontFamily: "Montserrat_400Regular",
+    letterSpacing: 0.5,
+    lineHeight:     20,
     color: "#F8F9FA"
   }
 });

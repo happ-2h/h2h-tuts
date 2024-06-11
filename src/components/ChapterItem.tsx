@@ -1,5 +1,5 @@
-import { Link } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
+import { Link }                        from "expo-router";
 
 const ChapterItem = ({ details, book }) => {
   // let [fontsLoaded, fontError]
@@ -23,28 +23,31 @@ export default ChapterItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FCFCFC",
+    padding:      10,
+    aspectRatio: 1.9,
     borderRadius: 10,
-    padding: 10,
-    elevation: 5,
-    aspectRatio: 1.9
+    elevation:     5,
+    backgroundColor: "#FCFCFC"
   },
   title: {
     flex: 1,
-    color: "#399EE6",
-    textAlign: "center",
-    fontSize: 24,
-    fontWeight: '600',
+
+    textAlign:  "center",
     fontFamily: "Montserrat_600SemiBold",
+    fontWeight: '600',
+    fontSize:      24,
+
     borderBottomColor: "#5C61660F",
-    borderStyle: "dotted",
-    borderBottomWidth: 2
+    borderStyle:       "dotted",
+    borderBottomWidth: 2,
+
+    color: "#399EE6"
   },
   desc: {
     flex: 2,
-    textAlign: "center",
-    color: "#5C6166",
+    textAlign:  "center",
     fontFamily: "Montserrat_400Regular",
-    fontSize: 20
+    fontSize: 20,
+    color: "#5C6166"
   }
 });

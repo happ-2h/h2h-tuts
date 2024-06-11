@@ -1,8 +1,9 @@
+import { FlatList }                    from "react-native";
 import { Stack, useLocalSearchParams } from "expo-router";
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { MaterialCommunityIcons }      from '@expo/vector-icons';
+
 import tableOfContents from "@assets/data/tableOfContents/tableOfContents";
-import { FlatList } from "react-native";
-import ChapterItem from "@/components/ChapterItem";
+import ChapterItem     from "@components/ChapterItem";
 
 const TOC = () => {
   const params = useLocalSearchParams();
@@ -11,7 +12,7 @@ const TOC = () => {
 
   return (
     <>
-      <FlatList 
+      <FlatList
         data={toc}
         renderItem={({ item }) => <ChapterItem details={item} book={params.id} />}
         contentContainerStyle={{ gap: 10, padding: 5 }}

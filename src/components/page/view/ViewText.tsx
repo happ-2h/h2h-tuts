@@ -8,7 +8,10 @@ export default ViewText;
 
 const styles = StyleSheet.create({
   text: {
-    color: "#000",
-    marginBottom: 20
+    marginBottom: 20,
+    fontFamily: "Montserrat_400Regular",
+    letterSpacing: 0.5,
+    lineHeight:     20,
+    color: "#5C6166"
   }
 });

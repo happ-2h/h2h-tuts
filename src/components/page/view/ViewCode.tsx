@@ -1,12 +1,12 @@
-import Prism from 'prismjs';
 import { StyleSheet, Text, View } from 'react-native';
-import * as Crypto from 'expo-crypto';
+import * as Crypto                from 'expo-crypto';
+import Prism                      from 'prismjs';
 
 const codePiece = obj => {
   if (typeof obj === "string")
-    return <Text key={Crypto.randomUUID()} style={styles.punctuation}>{ obj }</Text>;
+    return <Text key={Crypto.randomUUID()} style={[styles.punctuation, styles.font]}>{ obj }</Text>;
 
-  return <Text key={Crypto.randomUUID()}  style={styles[obj.type]}>{ obj.content }</Text>
+  return <Text key={Crypto.randomUUID()}  style={[styles[obj.type], styles.font ]}>{ obj.content }</Text>
 };
 
 const ViewCode = ({ content }: { content: string }) => {
@@ -16,7 +16,7 @@ const ViewCode = ({ content }: { content: string }) => {
     <View style={styles.container}>
       <Text>
         {
-          tokenized.map(obj => codePiece(obj))
+          tokenized.map((obj: Prism) => codePiece(obj))
         }
       </Text>
     </View>
@@ -27,14 +27,23 @@ export default ViewCode;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FCFCFC",
-    borderColor: "#8A91991A",
+    paddingLeft:  10,
+    paddingRight: 10,
+    elevation:     1,
+
     borderRadius: 10,
-    borderWidth: 2,
-    elevation: 1,
-    paddingLeft: 10,
-    paddingRight: 10
+    borderWidth:   2,
+    borderColor: "#8A91991A",
+
+    backgroundColor: "#FCFCFC"
   },
+  font: {
+    fontFamily: "Montserrat_500Medium",
+    fontSize:       13,
+    letterSpacing: 0.5,
+    lineHeight:     20
+  },
+  /* TEMP: light-mode syntax highlighting */
   string: {
     color: "#86B300"
   },

@@ -1,9 +1,10 @@
-import { FlatList } from "react-native";
+import { FlatList }     from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import bookCovers from "@assets/data/bookCovers";
-import Book from "@components/Book";
-import { StatusBar } from "expo-status-bar";
-import { BookCover } from "@/types";
+import { StatusBar }    from "expo-status-bar";
+
+import bookCovers       from "@assets/data/bookCovers";
+import Book             from "@components/Book";
+import { BookCover }    from "@/types";
 
 const Home = () => {
   return (

@@ -1,13 +1,23 @@
-import { BookCover } from "@/types";
-import { defaultImage } from "@assets/data/bookCovers";
-import { Montserrat_400Regular, Montserrat_600SemiBold, useFonts } from "@expo-google-fonts/montserrat";
-import { Link } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+
+import {
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  useFonts
+} from "@expo-google-fonts/montserrat";
+
+import { BookCover }    from "@/types";
+import { defaultImage } from "@assets/data/bookCovers";
 
 const Book = ({ book }: { book: BookCover }) => {
   let [fontsLoaded, fontError] = useFonts({
     Montserrat_600SemiBold,
-    Montserrat_400Regular
+    Montserrat_500Medium,
+    Montserrat_400Regular,
+    Montserrat_300Light
   });
 
   if (!fontsLoaded && !fontError) {
@@ -23,7 +33,7 @@ const Book = ({ book }: { book: BookCover }) => {
       }
     }} asChild>
       <Pressable style={styles.container}>
-        <Image 
+        <Image
           style={styles.image}
           source={ book.img || defaultImage }
         />
@@ -41,31 +51,34 @@ export default Book;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#FCFCFC",
+    padding:      10,
     borderRadius: 10,
-    padding: 10,
-    elevation: 5
+    elevation:     5,
+    backgroundColor: "#FCFCFC"
   },
   image: {
     width: 120,
     height: undefined,
     aspectRatio: 1/1.5,
+
     borderRadius: 10,
-    marginRight: 20
+    marginRight:  20
   },
   title: {
-    fontSize: 24,
-    fontFamily: 'Montserrat_600SemiBold',
-    textAlign: "center",
     marginBottom: 5,
+
+    textAlign:  "center",
+    fontFamily: 'Montserrat_600SemiBold',
+    fontSize:   24,
     color: "#399EE6",
+
     borderBottomColor: "#5C61660F",
     borderBottomWidth: 1
   },
   desc: {
-    fontSize: 12,
+    flexShrink: 1,
     fontFamily: 'Montserrat_400Regular',
-    color: "#5C6166",
-    flexShrink: 1
+    fontSize:   12,
+    color: "#5C6166"
   }
 });

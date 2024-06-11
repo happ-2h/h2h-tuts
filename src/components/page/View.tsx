@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
-import ViewText from "./view/ViewText";
-import ViewTitle from "./view/ViewTitle";
-import ViewError from "./view/ViewError";
-import ViewGood from "./view/ViewGood";
+import { StyleSheet, View } from "react-native";
+
+import ViewText   from "./view/ViewText";
+import ViewTitle  from "./view/ViewTitle";
+import ViewError  from "./view/ViewError";
+import ViewGood   from "./view/ViewGood";
 import SubHeading from "./view/ViewSubheading";
-import ViewCode from './view/ViewCode';
+import ViewCode   from './view/ViewCode';
 
 const PageView = ({ title, content }) => {
-  return ( 
+  return (
     <View style={ styles.container }>
       <ViewTitle title={title} />
       {
@@ -34,12 +35,15 @@ export default PageView;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FAFAFA",
     width: "90%",
+
     margin: "auto",
-    borderRadius: 10,
-    padding: 10,
     marginBottom: 20,
-    elevation: 5
+    padding:      10,
+    elevation:     5,
+
+    borderRadius: 10,
+
+    backgroundColor: "#FAFAFA",
   }
 });
