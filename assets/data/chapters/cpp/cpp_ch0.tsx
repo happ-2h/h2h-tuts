@@ -6,37 +6,59 @@ const cpp_ch0: ChapterObject = {
     {type: "header", content: "Book Conventions"},
     {
       type: "view",
-      title: "Few Words Test",
+      title: "Book Conventions",
       content: [
         {
           type: "text",
-          content: "Lorem ipsum dolor sit amet."
+          content: "The book will try to be as informative and concise as possible. Code will be tested on a linux x86-64 architecture with the clang++ and g++ compilers; however, the code should work on other 64-bit environments (if using the same compiler), but no guarantee!"
         },
         {
           type: "subheading",
-          content: "Lorem ipsum dolor sit."
+          content: "Good Practice | Recommendation"
         },
         {
           type: "text",
-          content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+          content: "Good practices and Recommendations are things that are done by convention, and/or are the most efficient way of doing something."
         },
         {
           type: "good",
           kind: "good",
-          content: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, sapiente."
+          content: "Implement what you read, customize it with curiosity, and use it in a made up scenario to really grasp what you read."
+        },
+        {
+          type: "subheading",
+          content: "Bad Practice | Error"
+        },
+        {
+          type: "text",
+          content: "Bad practices and Errors are things that are not done by convention (people will not understand what you're trying to acheive), won't compile, or may present bugs or unexpected behavior."
         },
         {
           type: "error",
-          kind: "error",
-          content: "Lorem ipsum dolor sit amett."
+          kind: "Bad",
+          content: "If you don't understand something, just give up and move on."
+        },
+        {
+          type: "subheading",
+          content: "Code Blocks"
+        },
+        {
+          type: "text",
+          content: "Code blocks will contain blocks of code. Ellipses, if not part of the C++ code, symbolize cut code that is not important to the current subject."
+        },
+        {
+          type: "text",
+          content: "\'\\#\' in a code block represents \'#\' in real code. It is a bug not yet squashed!"
         },
         {
           type: "code",
-          // FIXME: can't escape pound character '#' [Render ERROR]
           content: `
+// \\# is a code block bug! use # only
 \\#include <iostream>
 
-int main(int argc, const char* argv[]) {
+int main(int argc, char const *argv[]) {
+  std::cout << "Hello World\\n";
+
   return 0;
 }
           `
@@ -45,53 +67,23 @@ int main(int argc, const char* argv[]) {
     },
     {
       type: "view",
-      title: "Many Many Many Many Many Many Many Many Many Words Test",
+      title: "Who This Book is For",
       content: [
         {
           type: "text",
-          content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae a, ipsam magnam aspernatur dolor laudantium. Asperiores qui, cupiditate, eveniet doloremque, quae nostrum iste eius architecto maiores animi quis amet eaque!"
-        },
-        {
-          type: "subheading",
-          content: "Lorem ipsum dolor sit amet, consectetur adipisicing."
+          content: "This book is for developers that want to get into the C++ language. Beginners may gain more from this book than advanced developers."
         },
         {
           type: "text",
-          content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+          content: "Advanced developers may find the first few technical chapters mundane, as they cover basic programming language topics; however, after those chapters, we'll cover only C++."
         },
         {
-          type: "good",
-          kind: "good",
-          content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero eaque similique quam cupiditate? Eaque soluta est illum? Quisquam, nesciunt at tempora itaque alias omnis voluptas! Incidunt consectetur ab nisi quo! Corrupti, laboriosam?"
+          type: "subheading",
+          content: "What Not to Expect"
         },
         {
-          type: "error",
-          kind: "error",
-          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi perferendis, excepturi cupiditate nulla repudiandae mollitia veritatis praesentium. Est maxime distinctio praesentium iusto aliquid? Distinctio pariatur culpa repudiandae fuga, quam obcaecati officiis numquam. Eveniet quasi quo ea nulla veniam ratione, delectus eum aliquid!"
-        },
-        {
-          type: "code",
-          content: `
-/*
-  Multiline comment
- */
-template<class... Args>
-void f(Args... args) {
-  auto x = [args...] { return g(args...); };
-  x();
-}
-
-int main(int argc, const char* argv[]) {
-  int a = 10;
-  double b{ 12.3f };
-  bool c{ true && false || !true };
-
-  std::cout << "string" << '\\n';
-
-  // EXIT_SUCCESS
-  return 0;
-}
-          `
+          type: "text",
+          content: "This book is not intended for beginners to software development, operating systems, or computers. It is assumed the reader knows basics of software development and how to navigate through their operating system."
         }
       ]
     }
