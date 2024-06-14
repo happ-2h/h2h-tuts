@@ -16,6 +16,11 @@ const toc_cpp: BookTableOfContents[] = [
     title: "Chapter 2",
     desc: "Getting Started"
   },
+  {
+    id: "toc_cpp_ch3",
+    title: "Chapter 3",
+    desc: "Data Types"
+  }
 ];
 
 export default toc_cpp;

@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import * as Crypto                from 'expo-crypto';
 import Prism                      from 'prismjs';
+import { memo } from 'react';
 
 const codePiece = obj => {
   if (typeof obj === "string")
@@ -25,7 +26,7 @@ const ViewCode = ({ content }: { content: string }) => {
   );
 };
 
-export default ViewCode;
+export default memo(ViewCode);
 
 const styles = StyleSheet.create({
   container: {
