@@ -20,6 +20,11 @@ const toc_cpp: BookTableOfContents[] = [
     id: "toc_cpp_ch3",
     title: "Chapter 3",
     desc: "Data Types"
+  },
+  {
+    id: "toc_cpp_ch4",
+    title: "Chapter 4",
+    desc: "Operators"
   }
 ];
 
