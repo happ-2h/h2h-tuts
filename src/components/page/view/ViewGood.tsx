@@ -1,3 +1,4 @@
+import { memo }                   from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FontAwesome }            from '@expo/vector-icons';
 
@@ -24,7 +25,7 @@ const ViewGood = ({ content, kind }: { content: string, kind: string }) => {
   );
 };
 
-export default ViewGood;
+export default memo(ViewGood);
 
 const styles = StyleSheet.create({
   container: {

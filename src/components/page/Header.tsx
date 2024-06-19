@@ -1,10 +1,11 @@
+import { memo }             from "react";
 import { StyleSheet, Text } from "react-native";
 
 const PageHeader = ({ content } : { content: string }) => {
   return <Text style={ styles.text }>{ content }</Text>
 };
 
-export default PageHeader;
+export default memo(PageHeader);
 
 const styles = StyleSheet.create({
   text: {

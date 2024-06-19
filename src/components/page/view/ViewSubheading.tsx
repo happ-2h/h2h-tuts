@@ -1,10 +1,11 @@
+import { memo }             from "react";
 import { StyleSheet, Text } from "react-native";
 
 const SubHeading = ({ content }: { content: string }) => {
   return <Text style={ styles.text }>{ content }</Text>;
 };
 
-export default SubHeading;
+export default memo(SubHeading);
 
 const styles = StyleSheet.create({
   text: {

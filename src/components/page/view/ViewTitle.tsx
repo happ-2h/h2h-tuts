@@ -1,10 +1,11 @@
+import { memo }             from "react";
 import { StyleSheet, Text } from "react-native";
 
 const ViewTitle = ({ title }: { title: string }) => {
   return <Text style={ styles.text }>{ title }</Text>
 };
 
-export default ViewTitle;
+export default memo(ViewTitle);
 
 const styles = StyleSheet.create({
   text: {

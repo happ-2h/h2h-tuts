@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { FlatList, Pressable }               from "react-native";
 import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { Ionicons }                          from '@expo/vector-icons';
@@ -11,7 +12,7 @@ import { ChapterContentContent, ChapterObject } from "@/types";
 const BookContent = () => {
   const params = useLocalSearchParams();
 
-  const chapterData: ChapterObject = chapters[params.book][params.id];
+  const chapterData: ChapterObject = useMemo(() => chapters[params.book][params.id], [chapters]);
 
   return (
     <>

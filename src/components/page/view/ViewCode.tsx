@@ -1,7 +1,7 @@
+import { memo }                   from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Crypto                from 'expo-crypto';
 import Prism                      from 'prismjs';
-import { memo } from 'react';
 
 const codePiece = obj => {
   if (typeof obj === "string")

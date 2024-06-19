@@ -1,3 +1,4 @@
+import { memo, useMemo }             from "react";
 import { StyleSheet, View } from "react-native";
 
 import ViewText   from "./view/ViewText";
@@ -15,11 +16,13 @@ type PageViewParamTypes = {
 };
 
 const PageView = ({ title, content }: PageViewParamTypes) => {
+  const memo_content = useMemo(() => content, [content]);
+
   return (
     <View style={ styles.container }>
       <ViewTitle title={ title } />
       {
-        content.map(item => {
+        memo_content.map(item => {
           switch(item.type) {
             case "text":
               return <ViewText   key={ item.content } content={ item.content } />;
@@ -40,7 +43,7 @@ const PageView = ({ title, content }: PageViewParamTypes) => {
   );
 };
 
-export default PageView;
+export default memo(PageView);
 
 const styles = StyleSheet.create({
   container: {
