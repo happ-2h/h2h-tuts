@@ -25,6 +25,16 @@ const toc_cpp: BookTableOfContents[] = [
     id: "toc_cpp_ch4",
     title: "Chapter 4",
     desc: "Operators"
+  },
+  {
+    id: "toc_cpp_ch5",
+    title: "Chapter 5",
+    desc: "Bitwise Operators"
+  },
+  {
+    id: "toc_cpp_ch6",
+    title: "Chapter 6",
+    desc: "Conditional Statements"
   }
 ];
 
