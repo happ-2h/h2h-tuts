@@ -2,7 +2,7 @@
   "expo": {
     "name": "h2h_tutorials",
     "slug": "h2h_tutorials",
-    "scheme": "h2hTuts",
+    "scheme": "h2htuts",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

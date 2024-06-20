@@ -1,4 +1,11 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  ColorSchemeName,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View
+}               from "react-native";
 import { Link } from "expo-router";
 
 import {
@@ -9,16 +16,22 @@ import {
   useFonts
 } from "@expo-google-fonts/montserrat";
 
+import {
+  Inconsolata_400Regular
+} from "@expo-google-fonts/inconsolata";
+
 import { defaultImage } from "@assets/data/bookCovers";
+import { Colors }       from "@constants/Colors";
 
 import { BookCover }    from "@/types";
 
-const Book = ({ book }: { book: BookCover }) => {
+const Book = ({ book, theme }: { book: BookCover, theme: ColorSchemeName }) => {
   let [fontsLoaded, fontError] = useFonts({
     Montserrat_600SemiBold,
     Montserrat_500Medium,
     Montserrat_400Regular,
-    Montserrat_300Light
+    Montserrat_300Light,
+    Inconsolata_400Regular
   });
 
   if (!fontsLoaded && !fontError) {
@@ -30,18 +43,35 @@ const Book = ({ book }: { book: BookCover }) => {
     <Link href={{
       pathname: `/chapters/${ book.id }`,
       params: {
-        icon:      book.icon[0],
-        iconColor: book.icon[1]
+        icon:           book.icon[0],
+        iconColorLight: book.icon[1],
+        iconColorDark:  book.icon[2]
       }
     }} asChild>
-      <Pressable style={ styles.container }>
+      <Pressable style={
+        StyleSheet.flatten([
+          styles.container,
+          { backgroundColor: Colors[theme].book_background }
+        ]) }>
         <Image
           style={ styles.image }
           source={ book.img || defaultImage }
         />
         <View style={{ flexShrink: 1 }}>
-          <Text style={ styles.title }>{ book.title }</Text>
-          <Text style={ styles.desc } numberOfLines={ 5 }>{ book.desc }</Text>
+          <Text style={
+            StyleSheet.flatten([
+              styles.title,
+              {
+                color:             Colors[theme].ch_title,
+                borderBottomColor: Colors[theme].separator
+              }
+          ])}>{ book.title }</Text>
+          <Text style={
+            StyleSheet.flatten([
+              styles.desc,
+              { color: Colors[theme].fg }
+            ])
+          } numberOfLines={ 5 }>{ book.desc }</Text>
         </View>
       </Pressable>
     </Link>
@@ -53,13 +83,12 @@ export default Book;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding:      10,
-    borderRadius: 10,
-    elevation:     5,
-    backgroundColor: "#FCFCFC"
+    padding:       10,
+    borderRadius:  10,
+    elevation:      5
   },
   image: {
-    width: 120,
+    width:  120,
     height: undefined,
     aspectRatio: 1/1.5,
 
@@ -72,15 +101,12 @@ const styles = StyleSheet.create({
     textAlign:  "center",
     fontFamily: 'Montserrat_600SemiBold',
     fontSize:   24,
-    color: "#399EE6",
 
-    borderBottomColor: "#5C61660F",
     borderBottomWidth: 1
   },
   desc: {
     flexShrink: 1,
     fontFamily: 'Montserrat_400Regular',
     fontSize:   12,
-    color: "#5C6166"
   }
 });

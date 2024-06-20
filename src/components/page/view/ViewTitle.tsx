@@ -1,8 +1,18 @@
-import { memo }             from "react";
-import { StyleSheet, Text } from "react-native";
+import { memo }                              from "react";
+import { ColorSchemeName, StyleSheet, Text } from "react-native";
 
-const ViewTitle = ({ title }: { title: string }) => {
-  return <Text style={ styles.text }>{ title }</Text>
+import { Colors }                            from "@constants/Colors";
+
+const ViewTitle = ({ title, theme }: { title: string, theme: ColorSchemeName }) => {
+  return (
+    <Text style={
+      StyleSheet.flatten([
+        styles.text,
+        {
+          color:             Colors[theme].title,
+          borderBottomColor: Colors[theme].separator
+        }
+    ])}>{ title }</Text>);
 };
 
 export default memo(ViewTitle);
@@ -12,15 +22,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding:      10,
 
-    textAlign:  "center",
-    fontFamily: "Montserrat_500Medium",
-    fontSize:   24,
+    textAlign:    "center",
+    fontFamily:   "Montserrat_500Medium",
+    fontSize:     24,
     letterSpacing: 1,
 
     borderBottomWidth: 2,
-    borderStyle: "solid",
-
-    borderBottomColor: "#5C61660F",
-    color: "#1F2430"
+    borderStyle: "solid"
   }
 });

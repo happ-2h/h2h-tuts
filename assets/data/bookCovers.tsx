@@ -6,7 +6,7 @@ const bookCovers: BookCover[] = [
     title: "C++ Tutorial",
     desc: "C++20 tutorial for beginners",
     img: require("assets/imgs/book_covers/cover_cpp.png"),
-    icon: ["language-cpp", "#399EE6"],
+    icon: ["language-cpp", "#399EE6", "#59C2FF"],
     status: []
   }
 ];

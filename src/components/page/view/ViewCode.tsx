@@ -1,25 +1,46 @@
-import { memo }                   from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import * as Crypto                from 'expo-crypto';
-import Prism                      from 'prismjs';
+import { memo }    from 'react';
+import {
+  ColorSchemeName,
+  StyleSheet,
+  Text,
+  View
+}                  from 'react-native';
+import * as Crypto from 'expo-crypto';
+import Prism       from 'prismjs';
 
-const codePiece = obj => {
+import { CodeTheme } from '@constants/Colors';
+
+const codePiece = (obj, sysTheme: ColorSchemeName, codeTheme: string) => {
   if (typeof obj === "string")
     return <Text key={ Crypto.randomUUID() }
-      style={ [styles.punctuation, styles.font] }>{ obj }</Text>;
+      style={
+        StyleSheet.flatten([
+          { color: CodeTheme[codeTheme][sysTheme].punctuation }
+      ])}>{ obj }</Text>;
 
   return <Text key={ Crypto.randomUUID() }
-    style={ [styles[obj.type], styles.font] }>{ obj.content }</Text>
+    style={
+      StyleSheet.flatten([
+      { color: CodeTheme[codeTheme][sysTheme][obj.type] },
+      styles.font
+    ])}>{ obj.content }</Text>
 };
 
-const ViewCode = ({ content }: { content: string }) => {
+const ViewCode = ({ content, theme }: { content: string, theme: ColorSchemeName }) => {
   const tokenized = Prism.tokenize(content, Prism.languages.cpp);
 
+  /* TODO: let user choose theme */
+  const codeTheme = "ayu";
+
   return (
-    <View style={ styles.container }>
+    <View style={
+      StyleSheet.flatten([
+        styles.container,
+        { backgroundColor: CodeTheme[codeTheme][theme].bg }
+    ])}>
       <Text>
         {
-          tokenized.map((obj: Prism) => codePiece(obj))
+          tokenized.map((obj: Prism) => codePiece(obj, theme, codeTheme))
         }
       </Text>
     </View>
@@ -37,45 +58,12 @@ const styles = StyleSheet.create({
 
     borderRadius: 10,
     borderWidth:   2,
-    borderColor: "#8A91991A",
-
-    backgroundColor: "#FCFCFC"
+    borderColor: "#8A91991A"
   },
   font: {
-    fontFamily: "Montserrat_500Medium",
-    fontSize:       13,
+    fontFamily: 'Inconsolata_400Regular',
+    fontSize:       15,
     letterSpacing: 0.5,
     lineHeight:     20
-  },
-  /* TEMP: light-mode syntax highlighting */
-  string: {
-    color: "#86B300"
-  },
-  char: {
-    color: "#86B300"
-  },
-  keyword: {
-    color: "#FA8D3E"
-  },
-  operator: {
-    color: "#ED9366"
-  },
-  punctuation: {
-    color: "#5C6166"
-  },
-  function: {
-    color: "#F2AE49"
-  },
-  number: {
-    color: "#A37ACC"
-  },
-  comment: {
-    color: "#787B8099"
-  },
-  "double-colon": {
-    color: "#ED9366"
-  },
-  boolean: {
-    color: "#478ACC"
   }
 });

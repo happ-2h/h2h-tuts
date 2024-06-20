@@ -177,7 +177,7 @@ int a{ isTrue ? 40 : 0 }; // Returns 40 (assigned to 'a')
 
 
 bool isAuth{ false };
-std::cout << (isAuth ? "Welcome\n" : "Unauthorized Access!\n");
+std::cout << (isAuth ? \"Welcome\" : \"Unauthorized Access!\");
 
 
 /*

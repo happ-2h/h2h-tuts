@@ -1,14 +1,21 @@
-import { Pressable, StyleSheet, Text } from "react-native";
-import { Link }                        from "expo-router";
+import {
+  ColorSchemeName,
+  Pressable,
+  StyleSheet,
+  Text
+}               from "react-native";
+import { Link } from "expo-router";
 
-import { BookTableOfContents }         from "@/types";
+import { Colors }              from "@constants/Colors";
+import { BookTableOfContents } from "@/types";
 
 type ChapterItemParamTypes = {
   details: BookTableOfContents;
-  book: string | string[]
+  book:    string | string[];
+  theme:   ColorSchemeName;
 };
 
-const ChapterItem = ({ details, book }: ChapterItemParamTypes) => {
+const ChapterItem = ({ details, book, theme }: ChapterItemParamTypes) => {
   return (
     <Link href={{
       pathname: `/books/${ details.id }`,
@@ -16,9 +23,24 @@ const ChapterItem = ({ details, book }: ChapterItemParamTypes) => {
         book
       }
     }} asChild>
-      <Pressable style={ styles.container }>
-        <Text style={ styles.title }>{ details.title }</Text>
-        <Text style={ styles.desc  }>{ details.desc  }</Text>
+      <Pressable style={
+        StyleSheet.flatten([
+          styles.container,
+          { backgroundColor: theme === "dark" ? "#0D1017" : "#FCFCFC" }
+        ])}>
+        <Text style={
+          StyleSheet.flatten([
+            styles.title,
+            {
+              color:             Colors[theme].ch_title,
+              borderBottomColor: Colors[theme].separator
+            }
+          ])}>{ details.title }</Text>
+        <Text style={
+          StyleSheet.flatten([
+            styles.desc,
+            { color: Colors[theme].fg }
+          ])}>{ details.desc }</Text>
       </Pressable>
     </Link>
   );
@@ -31,8 +53,7 @@ const styles = StyleSheet.create({
     padding:      10,
     aspectRatio: 1.9,
     borderRadius: 10,
-    elevation:     5,
-    backgroundColor: "#FCFCFC"
+    elevation:     5
   },
   title: {
     flex: 1,
@@ -42,17 +63,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize:      24,
 
-    borderBottomColor: "#5C61660F",
-    borderStyle:       "dotted",
-    borderBottomWidth: 2,
-
-    color: "#399EE6"
+    borderStyle: "dotted",
+    borderBottomWidth: 2
   },
   desc: {
-    flex: 2,
+    flex:        2,
+    marginTop:  20,
     textAlign:  "center",
     fontFamily: "Montserrat_400Regular",
-    fontSize: 20,
-    color: "#5C6166"
+    fontSize:   20
   }
 });

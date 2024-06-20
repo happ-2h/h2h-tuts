@@ -1,18 +1,24 @@
-import { memo }             from "react";
-import { StyleSheet, Text } from "react-native";
+import { memo }                              from "react";
+import { ColorSchemeName, StyleSheet, Text } from "react-native";
 
-const ViewText = ({ content }: { content: string }) => {
-  return <Text style={ styles.text }>{ content }</Text>
+import { Colors }                            from "@constants/Colors";
+
+const ViewText = ({ content, theme }: { content: string, theme: ColorSchemeName }) => {
+  return (
+    <Text style={
+      StyleSheet.flatten([
+        styles.text,
+        { color: Colors[theme].fg }
+    ])}>{ content }</Text>);
 };
 
 export default memo(ViewText);
 
 const styles = StyleSheet.create({
   text: {
-    marginBottom: 20,
-    fontFamily: "Montserrat_400Regular",
+    marginBottom:   20,
+    fontFamily:    "Montserrat_400Regular",
     letterSpacing: 0.5,
-    lineHeight:     20,
-    color: "#5C6166"
+    lineHeight:     20
   }
 });

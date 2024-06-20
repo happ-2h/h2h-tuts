@@ -1,41 +1,47 @@
-import { memo, useMemo }             from "react";
-import { StyleSheet, View } from "react-native";
+import { memo, useMemo }                     from "react";
+import { ColorSchemeName, StyleSheet, View } from "react-native";
 
-import ViewText   from "./view/ViewText";
-import ViewTitle  from "./view/ViewTitle";
+import SubHeading from "./view/ViewSubheading";
+import ViewCode   from "./view/ViewCode";
 import ViewError  from "./view/ViewError";
 import ViewGood   from "./view/ViewGood";
-import SubHeading from "./view/ViewSubheading";
-import ViewCode   from './view/ViewCode';
+import ViewText   from "./view/ViewText";
+import ViewTitle  from "./view/ViewTitle";
 
+import { Colors }                from "@constants/Colors";
 import { ChapterContentContent } from "@/types";
 
 type PageViewParamTypes = {
   title:   string;
   content: ChapterContentContent[];
+  theme:   ColorSchemeName;
 };
 
-const PageView = ({ title, content }: PageViewParamTypes) => {
+const PageView = ({ title, content, theme }: PageViewParamTypes) => {
   const memo_content = useMemo(() => content, [content]);
 
   return (
-    <View style={ styles.container }>
-      <ViewTitle title={ title } />
+    <View style={
+      StyleSheet.flatten([
+        styles.container,
+        { backgroundColor: Colors[theme].view_bg }
+    ])}>
+      <ViewTitle title={ title } theme={ theme } />
       {
         memo_content.map(item => {
           switch(item.type) {
             case "text":
-              return <ViewText   key={ item.content } content={ item.content } />;
+              return <ViewText   key={ item.content } content={ item.content } theme={ theme } />;
             case "error":
-              return <ViewError  key={ item.content } content={ item.content }
+              return <ViewError  key={ item.content } content={ item.content } theme={ theme }
                 kind={ item.kind as string } />;
             case "good":
               return <ViewGood   key={ item.content } content={ item.content }
                 kind={ item.kind as string } />;
             case "subheading":
-              return <SubHeading key={ item.content } content={ item.content } />;
+              return <SubHeading key={ item.content } content={ item.content } theme={ theme } />;
             case "code":
-              return <ViewCode   key={ item.content } content={ item.content } />;
+              return <ViewCode   key={ item.content } content={ item.content } theme={ theme } />;
           }
         })
       }
@@ -47,15 +53,13 @@ export default memo(PageView);
 
 const styles = StyleSheet.create({
   container: {
-    width: "90%",
+    width:     "90%",
 
-    margin: "auto",
+    margin:   "auto",
     marginBottom: 20,
     padding:      10,
     elevation:     5,
 
-    borderRadius: 10,
-
-    backgroundColor: "#FAFAFA",
+    borderRadius: 10
   }
 });

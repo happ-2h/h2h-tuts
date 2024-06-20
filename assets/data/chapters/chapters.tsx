@@ -1,5 +1,5 @@
 import { default as cppchapters } from "./cpp/chapters";
-import { BookChapterMap } from "@/types";
+import { BookChapterMap }         from "@/types";
 
 type ChaptersMap = {
   [key: string]: BookChapterMap;
