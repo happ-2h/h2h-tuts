@@ -59,7 +59,7 @@ _Alternatively, you can set up a local server via `npm start` and run it on an A
 
 ### Writing Your Own Tutorial
 
-See the Wiki for details on how you can write your own tutorials.
+See the [Wiki](https://github.com/happ-2h/h2h-tuts/wiki) for details on how you can write your own tutorials.
 
 ## Roadmap
 
