@@ -45,7 +45,7 @@ npm install npm@latest -g
 
 1. Clone the repo
    ```sh
-   git clone
+   git clone https://github.com/happ-2h/h2h-tuts.git
    ```
 2. Install npm packages
    ```sh
