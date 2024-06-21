@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.hikonet.h2h_tutorials"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -27,6 +28,14 @@
     "plugins": [
       "expo-router",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "c61fa131-be07-44a4-a5ab-01a451d36323"
+      }
+    }
   }
 }
