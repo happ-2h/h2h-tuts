@@ -1,4 +1,3 @@
-import { useMemo }                             from "react";
 import { FlatList, Pressable, useColorScheme } from "react-native";
 import { Link, Stack, useLocalSearchParams }   from "expo-router";
 import { Ionicons }                            from '@expo/vector-icons';
@@ -8,13 +7,17 @@ import PageHeader from "@components/page/Header";
 import PageView   from "@components/page/View";
 import { Colors } from "@constants/Colors";
 
-import { ChapterContentContent, ChapterObject } from "@/types";
+import { ChapterContentContent } from "@/types";
 
 const BookContent = () => {
-  const params = useLocalSearchParams();
-  const theme  = useColorScheme();
+  const theme  = useColorScheme() ?? "dark";
 
-  const chapterData: ChapterObject = useMemo(() => chapters[params.book][params.id], [chapters]);
+  const { book, id } = useLocalSearchParams<{ book: string; id: string; }>();
+
+  // TODO: Visual error handling
+  if (!book || !id) return <>Invalid Parameters</>;
+
+  const chapterData = chapters[book][id];
 
   return (
     <>
@@ -30,6 +33,7 @@ const BookContent = () => {
                 content={ item.content as ChapterContentContent[] }
                 theme={ theme }
               />
+            default: return <>Page rendering error</>; // TODO: Visual error handling
           }
         }}
         style={{

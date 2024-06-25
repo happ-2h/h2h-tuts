@@ -8,7 +8,7 @@ const ViewText = ({ content, theme }: { content: string, theme: ColorSchemeName 
     <Text style={
       StyleSheet.flatten([
         styles.text,
-        { color: Colors[theme].fg }
+        { color: Colors[(theme ? theme : "dark")].fg }
     ])}>{ content }</Text>);
 };
 

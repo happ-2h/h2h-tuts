@@ -7,7 +7,7 @@ const PageHeader = ({ content, theme } : { content: string, theme: ColorSchemeNa
   return <Text style={
     StyleSheet.flatten([
       styles.text,
-      { color: Colors[theme].fg }
+      { color: Colors[(theme ? theme : "dark")].fg }
   ])}>{ content }</Text>
 };
 

@@ -6,16 +6,14 @@ import bookCovers                   from "@assets/data/bookCovers";
 import Book                         from "@components/Book";
 import { Colors }                   from "@constants/Colors";
 
-import { BookCover }                from "@/types";
-
 const Home = () => {
-  const theme = useColorScheme();
+  const theme = useColorScheme() ?? "dark";
 
   return (
     <SafeAreaView>
       <FlatList
         data={ bookCovers }
-        renderItem={ ({ item }: { item: BookCover }) => <Book book={ item } theme={ theme } /> }
+        renderItem={ ({ item }) => <Book book={ item } theme={ theme } /> }
         contentContainerStyle={{ gap: 10, padding: 5 }}
         style={
           {

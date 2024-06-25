@@ -18,6 +18,7 @@ type PageViewParamTypes = {
 };
 
 const PageView = ({ title, content, theme }: PageViewParamTypes) => {
+  theme = theme ? theme : "dark";
   const memo_content = useMemo(() => content, [content]);
 
   return (

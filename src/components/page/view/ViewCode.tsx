@@ -15,7 +15,7 @@ const codePiece = (obj, sysTheme: ColorSchemeName, codeTheme: string) => {
     return <Text key={ Crypto.randomUUID() }
       style={
         StyleSheet.flatten([
-          { color: CodeTheme[codeTheme][sysTheme].punctuation }
+        { color: CodeTheme[codeTheme][sysTheme].punctuation }
       ])}>{ obj }</Text>;
 
   return <Text key={ Crypto.randomUUID() }
@@ -31,6 +31,9 @@ const ViewCode = ({ content, theme }: { content: string, theme: ColorSchemeName 
 
   /* TODO: let user choose theme */
   const codeTheme = "ayu";
+
+  // TODO: Visual error handler
+  if (!theme) return <>NULL theme</>;
 
   return (
     <View style={

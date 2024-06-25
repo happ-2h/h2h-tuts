@@ -9,8 +9,8 @@ const ViewTitle = ({ title, theme }: { title: string, theme: ColorSchemeName }) 
       StyleSheet.flatten([
         styles.text,
         {
-          color:             Colors[theme].title,
-          borderBottomColor: Colors[theme].separator
+          color:             Colors[(theme ? theme : "dark")].title,
+          borderBottomColor: Colors[(theme ? theme : "dark")].separator
         }
     ])}>{ title }</Text>);
 };

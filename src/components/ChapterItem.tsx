@@ -16,6 +16,8 @@ type ChapterItemParamTypes = {
 };
 
 const ChapterItem = ({ details, book, theme }: ChapterItemParamTypes) => {
+  theme = theme ? theme : "dark";
+
   return (
     <Link href={{
       pathname: `/books/${ details.id }`,

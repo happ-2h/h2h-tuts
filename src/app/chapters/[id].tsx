@@ -7,16 +7,27 @@ import ChapterItem     from "@components/ChapterItem";
 import { Colors }      from "@constants/Colors";
 
 const TOC = () => {
-  const params = useLocalSearchParams();
-  const theme  = useColorScheme();
+  const theme  = useColorScheme() ?? "dark";
 
-  const toc = tableOfContents[params.id];
+  const { id, icon, iconColorDark, iconColorLight } =
+    useLocalSearchParams<{
+      id:             string;
+      icon:           keyof typeof MaterialCommunityIcons.glyphMap;
+      iconColorDark:  string;
+      iconColorLight: string;
+    }>();
+
+  if (!id || !icon || !iconColorDark || !iconColorLight )
+    // TODO: Visual error
+    return <>ERROR: NULL parameters</>;
+
+  const toc = tableOfContents[id];
 
   return (
     <>
       <FlatList
         data={ toc }
-        renderItem={({ item }) => <ChapterItem details={ item } book={ params.id } theme={ theme } />}
+        renderItem={({ item }) => <ChapterItem details={ item } book={ id } theme={ theme } />}
         contentContainerStyle={{ gap: 10, padding: 5 }}
         style={{
           backgroundColor: Colors[theme].bg,
@@ -29,8 +40,8 @@ const TOC = () => {
         } ,
         headerTintColor: Colors[theme].fg,
         headerRight: () => <MaterialCommunityIcons
-          name={ params.icon }
-          color={ theme === "dark" ? params.iconColorDark : params.iconColorLight } size={32} />,
+          name={ icon }
+          color={ theme === "dark" ? iconColorDark : iconColorLight } size={32} />,
         headerTitleAlign: "center",
       }} />
     </>

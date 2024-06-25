@@ -26,6 +26,8 @@ import { Colors }       from "@constants/Colors";
 import { BookCover }    from "@/types";
 
 const Book = ({ book, theme }: { book: BookCover, theme: ColorSchemeName }) => {
+  theme = theme ? theme : "dark";
+
   let [fontsLoaded, fontError] = useFonts({
     Montserrat_600SemiBold,
     Montserrat_500Medium,
@@ -34,10 +36,9 @@ const Book = ({ book, theme }: { book: BookCover, theme: ColorSchemeName }) => {
     Inconsolata_400Regular
   });
 
-  if (!fontsLoaded && !fontError) {
+  if (!fontsLoaded && !fontError)
     // TODO: font load fail handler
-    return null;
-  }
+    return <>Font failed to load</>;
 
   return (
     <Link href={{

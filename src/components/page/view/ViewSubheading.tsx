@@ -8,7 +8,7 @@ const SubHeading = ({ content, theme }: { content: string, theme: ColorSchemeNam
     <Text style={
       StyleSheet.flatten([
         styles.text,
-        { color: Colors[theme].subheading }
+        { color: Colors[(theme ? theme : "dark")].subheading }
     ])}>{ content }</Text>);
 };
 

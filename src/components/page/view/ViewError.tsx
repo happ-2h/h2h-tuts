@@ -20,7 +20,7 @@ const ViewError = ({ content, kind, theme }: ViewErrorParamTypes) => {
     <View style={
       StyleSheet.flatten([
         styles.container,
-        { backgroundColor: Colors[theme].err_bg }
+        { backgroundColor: Colors[(theme ? theme : "dark")].err_bg }
     ])}>
       <View style={ styles.heading }>
         <FontAwesome
